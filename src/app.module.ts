@@ -8,7 +8,10 @@ import { EventsModule } from './events/events.module';
 dotenv.config();
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.MONGODB_URI), EventsModule],
+  imports: [
+    MongooseModule.forRoot(process.env.MONGODB_URI as string),
+    EventsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
