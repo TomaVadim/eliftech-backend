@@ -5,12 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { EventsModule } from './events/events.module';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://tomavadim74:Qwerty123@cluster.wqbghfq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster',
-    ),
-    EventsModule,
-  ],
+  imports: [MongooseModule.forRoot(process.env.MONGODB_URI), EventsModule],
   controllers: [AppController],
   providers: [AppService],
 })
