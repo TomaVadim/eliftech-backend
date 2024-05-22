@@ -5,6 +5,6 @@ import { CORS_CONFIG } from './configs/cors.config';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors(CORS_CONFIG);
-  await app.listen(process.env.PORT || 8080);
+  await app.listen(process.env.PORT);
 }
 bootstrap();
