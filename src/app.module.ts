@@ -11,6 +11,9 @@ dotenv.config();
   imports: [
     MongooseModule.forRoot(
       'mongodb+srv://tomavadim74:Qwerty123@cluster.wqbghfq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster',
+      {
+        dbName: 'test',
+      },
     ),
     EventsModule,
   ],
