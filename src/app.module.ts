@@ -9,7 +9,9 @@ dotenv.config();
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGODB_URI as string),
+    MongooseModule.forRoot(
+      'mongodb+srv://tomavadim74:Qwerty123@cluster.wqbghfq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster',
+    ),
     EventsModule,
   ],
   controllers: [AppController],
