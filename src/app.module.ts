@@ -6,13 +6,9 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { EventsModule } from './events/events.module';
 
-const envModule = ConfigModule.forRoot({
-  isGlobal: true,
-});
-
 @Module({
   imports: [
-    envModule,
+    ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGO_URI, {
       dbName: 'test',
     }),
