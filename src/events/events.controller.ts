@@ -9,6 +9,11 @@ import { Event } from './event.schema';
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
+  @Get()
+  findEventById(@Query('eventId') eventId: string): Promise<Event> {
+    return this.eventsService.findEventById(parseInt(eventId));
+  }
+
   @Post()
   create(@Body() createEventDto: CreateEventDto): Promise<Event> {
     return this.eventsService.create(createEventDto);
