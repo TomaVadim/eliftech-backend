@@ -15,6 +15,13 @@ export class EventsService {
     private readonly sequenceService: SequenceService,
   ) {}
 
+  async findEventById(eventId: number): Promise<Event> {
+    return this.eventModel
+      .findOne({ id: eventId })
+      .populate('participants')
+      .exec();
+  }
+
   async create(createEventDto: CreateEventDto): Promise<Event> {
     const autoIncrementedId =
       await this.sequenceService.getNextSequenceValue('events');
