@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -8,10 +7,12 @@ import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_URI, {
-      dbName: 'test',
-    }),
+    MongooseModule.forRoot(
+      'mongodb+srv://tomavadim74:Qwerty123@cluster.wqbghfq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster',
+      {
+        dbName: 'test',
+      },
+    ),
     EventsModule,
   ],
   controllers: [AppController],
